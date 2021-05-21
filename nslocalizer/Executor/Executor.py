@@ -105,7 +105,7 @@ class Executor(object):
             data = FileOperations.getData(source_code_file)
             if data is None:
                 continue
-            matches = re.findall(r'"(.*?)\".localized', data)
+            matches = re.findall(r'"(.*?)\"', data)
             Logger.write().debug('%s: %i results' % (os.path.basename(source_code_file), len(matches)))
             known_strings.update(matches)
         unused_strings = [lstring for lstring in base_language.strings if lstring.string not in known_strings]
